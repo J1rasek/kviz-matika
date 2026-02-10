@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<title>Kvíz – Cizinci v ČR</title>
+<style>
+body { font-family: Arial; background:#f4f4f4; padding:20px; }
+.quiz { background:white; padding:20px; border-radius:10px; max-width:600px; margin:auto; }
+button { margin-top:20px; padding:10px 20px; }
+</style>
+</head>
+<body>
+<div class="quiz">
+<h2>Kvíz: Cizinci v České republice</h2>
+
+<form id="quiz">
+<p>1️⃣ Jaká statistická hodnota nejlépe popisuje „nejčastější hodnotu“?</p>
+<input type="radio" name="q1" value="1"> Modus<br>
+<input type="radio" name="q1" value="0"> Medián<br>
+<input type="radio" name="q1" value="0"> Průměr<br>
+<input type="radio" name="q1" value="0"> Rozptyl<br>
+
+<p>2️⃣ Jaký je medián hodnot v datech?</p>
+<input type="radio" name="q2" value="1"> 1094<br>
+<input type="radio" name="q2" value="0"> 8<br>
+<input type="radio" name="q2" value="0"> 500000<br>
+<input type="radio" name="q2" value="0"> 1970<br>
+
+<p>3️⃣ Co vyjadřuje směrodatná odchylka?</p>
+<input type="radio" name="q3" value="1"> Rozptýlení dat<br>
+<input type="radio" name="q3" value="0"> Největší hodnotu<br>
+<input type="radio" name="q3" value="0"> Počet let<br>
+<input type="radio" name="q3" value="0"> Nejčastější kraj<br>
+
+<p>4️⃣ Jaká je hodnota modusu?</p>
+<input type="radio" name="q4" value="1"> 8<br>
+<input type="radio" name="q4" value="0"> 1094<br>
+<input type="radio" name="q4" value="0"> 1975<br>
+<input type="radio" name="q4" value="0"> 500000<br>
+
+<p>5️⃣ Co lze z dat obecně říct?</p>
+<input type="radio" name="q5" value="1"> Počet cizinců se dlouhodobě zvyšuje<br>
+<input type="radio" name="q5" value="0"> Počet je konstantní<br>
+<input type="radio" name="q5" value="0"> Prudce klesá<br>
+<input type="radio" name="q5" value="0"> Nedá se určit<br>
+
+<button type="button" onclick="vyhodnot()">Vyhodnotit</button>
+</form>
+
+<p id="vysledek"></p>
+</div>
+
+<script>
+function vyhodnot() {
+ let score = 0;
+ for (let i=1; i<=5; i++) {
+   let q = document.querySelector('input[name="q'+i+'"]:checked');
+   if (q) score += parseInt(q.value);
+ }
+ document.getElementById("vysledek").innerText =
+   "Tvoje skóre: " + score + " / 5";
+}
+</script>
+</body>
+</html>
